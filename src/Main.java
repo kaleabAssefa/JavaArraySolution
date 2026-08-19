@@ -2,14 +2,51 @@
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
-
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
-        }
+        System.out.print("The average is: ");
+        averageValue();
+        findTarget();
+        findIndex();
     }
+
+    static void averageValue() {
+        int[] numbers = {10, 20, 30, 40, 50};
+        int sum = 0;
+        double average;
+        for (int i = 0; i < numbers.length; i++) {
+
+            sum += numbers[i];
+        }
+        average = sum / numbers.length;
+        System.out.println(average);
+    }
+
+    static void findTarget() {
+        int[] numbers = {10, 20, 50, 40, 50};
+        int target = 40;
+        boolean isFound = false;
+        for (int i = 0; i < numbers.length; i++) {
+            if (numbers[i] == target) {
+                System.out.println("The number is found in the array: "+ target+" on index: "+ i);
+                isFound = true;
+            }
+        }if(isFound != true){
+            System.out.println("It is not found in the array.");
+        }
+
+    }
+    static void findIndex(){
+        int[] numbers = {10, 20, 50, 40, 50};
+        int target = 40;
+        boolean isFound = false;
+
+        for (int i = 0; i < numbers.length; i++) {
+            if (numbers[i] == target) {
+                System.out.println("The number is found in the array: " + i);
+                isFound = true;
+            }
+        }
+
+    }
+
+
 }
