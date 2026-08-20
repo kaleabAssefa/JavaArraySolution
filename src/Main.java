@@ -3,14 +3,24 @@
 public class Main {
     public static void main(String[] args) {
         System.out.print("The average is: ");
-        int[] numbers = {10, 20, 30, 5, 40, 33, 44, 50};
+        int[] numbers = {10, 20, 30, 5, 40, 33, 5, 44, 50};
+        String[]fruits = {"Apples","Orange","Pineapple","Banana","Coconut","Apples"};
+        String[] foods={"Pizza","Pasta","Burger","Hotdog","Banana","Pasta","Coconut"};
         averageValue();
         findTarget();
-        findIndex();
+        findIndex(numbers);
         removedIndex(numbers, 20);
         findMaxMin(numbers);
         separateEvenOdd(numbers);
         findThesecondMinMax(numbers);
+        reverseArray(numbers);
+        duplicateValues(numbers);
+        duplicateValueString(foods);
+        commonElementsOfArrays(foods,fruits);
+        findingTheLargestElements(numbers);
+        findingTheLowestElements(numbers);
+        swapArray(numbers);
+        swapThreeNumbers(numbers);
     }
 
     static void averageValue() {
@@ -41,8 +51,8 @@ public class Main {
 
     }
 
-    static void findIndex() {
-        int[] numbers = {10, 20, 50, 40, 5, 50};
+    static void findIndex(int[] numbers) {
+
         int target = 40;
         boolean isFound = false;
 
@@ -154,10 +164,130 @@ public class Main {
                 secondMax = numbers[i];
             }
         }
-        System.out.println("This is the second min" + secondMin);
-        System.out.println("This is the second max" + secondMax);
+        System.out.println("This is the second min " + secondMin);
+        System.out.println("This is the second max " + secondMax);
+    }
+
+    static void reverseArray(int[] numbers) {
+        int[] reversedNumbers = new int[numbers.length];
+        int index = 0;
+        for (int i = numbers.length - 1; i >= 0; i--) {
+            reversedNumbers[index] = numbers[i];
+            index++;
+        }
+        for (int i = 0; i < reversedNumbers.length; i++) {
+            System.out.println("Reversed Numbers: " + reversedNumbers[i]);
+        }
+    }
+
+    static void duplicateValues(int[] numbers) {
+        for (int i = 0; i < numbers.length; i++) {
+            for (int j = i + 1; j < numbers.length; j++) {
+                if (numbers[j] == numbers[i]) {
+                    System.out.println(numbers[i]);
+                    int duplicateNumber = numbers[i];
+                    System.out.println("This is a duplicate number: " + duplicateNumber);
+                }
+            }
+        }
+    }
+    static void duplicateValueString(String[]foods){
+
+        for(int i = 0; i < foods.length;i++){
+            for(int j = i+1; j < foods.length;j++){
+                if(foods[i].equals(foods[j])){
+                    String duplicateItem= foods[i];
+                    System.out.println("The duplicate item is: "+duplicateItem);
+                }
+            }
+
+        }
 
     }
+
+    static void commonElementsOfArrays(String[] foods, String[]fruits){
+        for(int i =0;i< foods.length;i++){
+            for(int j = 0; j<fruits.length;j++){
+                if(foods[i].equals(fruits[j])){
+                    System.out.println("This item is in both Arrays:"+ foods[i]);
+                }
+            }
+        }
+    }
+    static void findingTheLargestElements(int[]numbers){
+        int k = 3;
+        int[] largestNumbers = new int[k];
+
+        for (int j = 0; j < k; j++) {
+
+            int max = numbers[0];
+            int maxIndex = 0;
+
+            for (int i = 0; i < numbers.length; i++) {
+
+                if (numbers[i] > max) {
+                    max = numbers[i];
+                    maxIndex = i;
+                }
+            }
+
+            largestNumbers[j] = max;
+
+            numbers[maxIndex] = Integer.MIN_VALUE;
+        }
+        for(int i =0;i<largestNumbers.length;i++){
+            System.out.println("The k number of large numbers are: "+largestNumbers[i]);
+        }
+    }
+
+    static void findingTheLowestElements(int[]numbers){
+        int k = 3;
+        int[] smallestNumbers = new int[k];
+
+        for(int j = 0;j<k;j++){
+            int min = numbers[0];
+            int minIndex= 0;
+            for(int i = 0; i < numbers.length;i++){
+                if(numbers[i]> min){
+                    min = numbers[i];
+                    minIndex=i;
+                }
+            }
+            smallestNumbers[j] = min;
+
+            numbers[minIndex] = Integer.MIN_VALUE;
+        }
+        for(int i =0;i<smallestNumbers.length;i++){
+            System.out.println("The k number of Smaller numbers are: "+smallestNumbers[i]);
+        }
+    }
+    static void swapArray(int[] numbers) {
+        int firstIndex=0;
+        int secondIndex=4;
+
+        int temp = numbers[firstIndex];
+
+        numbers[firstIndex] = numbers[secondIndex];
+
+        numbers[secondIndex] = temp;
+    }
+    static void swapThreeNumbers(int[]numbers) {
+
+        int a = 10;
+        int b = 20;
+        int c = 30;
+        int temp = a;
+        a = b;
+        b = c;
+        c = temp;
+
+        System.out.println("After:");
+        System.out.println("a = " + a);
+        System.out.println("b = " + b);
+        System.out.println("c = " + c);
+    }
+
+
 }
 
 
