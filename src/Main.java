@@ -1,5 +1,6 @@
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+import java.util.Arrays;
 public class Main {
     public static void main(String[] args) {
         System.out.print("The average is: ");
@@ -21,6 +22,9 @@ public class Main {
         findingTheLowestElements(numbers);
         swapArray(numbers);
         swapThreeNumbers(numbers);
+        ascendingOrder(numbers);
+        descendingOrder(numbers);
+        copyArray(numbers);
     }
 
     static void averageValue() {
@@ -285,6 +289,57 @@ public class Main {
         System.out.println("a = " + a);
         System.out.println("b = " + b);
         System.out.println("c = " + c);
+    }
+
+    static void ascendingOrder(int[] numbers) {
+
+        for (int i = 0; i < numbers.length; i++) {
+
+            for (int j = i + 1; j < numbers.length; j++) {
+
+                if (numbers[i] > numbers[j]) {
+
+                    int temp = numbers[i];
+                    numbers[i] = numbers[j];
+                    numbers[j] = temp;
+                }
+            }
+        }
+    }
+    static void descendingOrder(int[] numbers) {
+
+        System.out.println("Before sorting: " + Arrays.toString(numbers));
+
+        for (int i = 0; i < numbers.length; i++) {
+
+            for (int j = i + 1; j < numbers.length; j++) {
+
+                if (numbers[i] < numbers[j]) {
+
+                    int temp = numbers[i];
+                    numbers[i] = numbers[j];
+                    numbers[j] = temp;
+
+                    System.out.println(
+                            "After swap: " + Arrays.toString(numbers)
+                    );
+                }
+            }
+        }
+
+        System.out.println("Descending order: " + Arrays.toString(numbers));
+    }
+    static void copyArray(int[] numbers) {
+
+        int[] newArray = new int[numbers.length];
+
+        for (int i = 0; i < numbers.length; i++) {
+            newArray[i] = numbers[i];
+        }
+        for(int i =0; i< newArray.length;i++){
+            System.out.println(newArray[i]);
+        }
+
     }
 
 
